@@ -8,5 +8,78 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+   push();
+      background(173, 216, 230);     
+  
+  //background log
+  noStroke()
+   fill(139, 69, 19);
+  rect(0 ,350, 400, 20);
+  
+  //background standing branch
+   fill(139, 69, 19);
+  rect(350 ,0, 20, 370);
+  
+  //background tree bush
+  fill(50, 205, 50)
+  circle(350,30,90)
+  circle(280,70,90);
+  circle(350,70,90);
+
+  pop();
+
+  //---------- Creature--- -------------------------
+  push();
+    translate(200, 400);
+  
+  // leg
+  fill(150, 112, 8);
+  ellipse(30, -70, 155, 40);
+  
+  //body
+  fill(150, 112, 80)
+  rect(-50,-210,100,140)
+  
+  // legs
+  fill(150, 112, 80);
+  ellipse(20, -60, 155, 40);
+  
+  //head outline
+  fill(150, 112, 80);
+  ellipse(0, -250, 100, 100);
+
+  //inner head
+  fill(235, 213, 197);
+  noStroke();
+  ellipse(0,-250,85,85);
+  
+  //outer eyes
+  fill(133, 79, 36);
+  ellipse(-20, -250, 30, 20);
+  ellipse(20, -250, 30, 20);
+  
+  //pupils
+  fill(0);
+  circle(-20, -250, 11);
+  circle(20,-250,11);
+  
+  //nose
+  fill(0);
+  triangle(5, -240, -5, -240, 0, -235);
+  
+  //line connecting to mouth
+  stroke(0)
+  line(0, -235, 0, -230);
+  
+  //mouth
+  stroke(0); 
+  arc(0, -230, 30, 20, 0, PI,CHORD);
+  
+  // arms
+  fill(150, 112, 80);
+  ellipse(100, -200, 155, 40);
+  ellipse(-100, -200, 155, 40);
+
+  pop();
+        
 }
