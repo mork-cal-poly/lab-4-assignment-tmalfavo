@@ -1,6 +1,7 @@
 let birdY = 90;
 let isFlying = false;
 let creatureRotation = 0;
+let isCreatureAnimationTriggered = false;
 
 function setup() {
   // These lines are fitting our canvas
@@ -19,9 +20,15 @@ function draw() {
 
   if (isFlying){
   birdY -= 1;
+
+  if (birdY <= 50 && !isCreatureAnimationTriggered){
+    isCreatureAnimationTriggered = true;
+  }
   }
 
+  if (isCreatureAnimationTriggered){
   creatureRotation += radians(1);
+  }
 
   drawCreature(200, 200, creatureRotation);
 
