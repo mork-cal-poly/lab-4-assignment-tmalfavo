@@ -1,3 +1,5 @@
+let birdY = 90;
+
 function setup() {
   // These lines are fitting our canvas
   // where we want in the DOM
@@ -8,9 +10,20 @@ function setup() {
 }
 
 function draw() {
-   push();
-      background(173, 216, 230);     
-  
+
+  background(173, 216, 230);
+
+  drawBackground();
+
+  drawCreature();
+
+  birdY -= 1;
+  drawBird(200, birdY);
+}
+
+function drawBackground() {
+   push();  
+         
   //background log
   noStroke()
    fill(139, 69, 19);
@@ -27,8 +40,9 @@ function draw() {
   circle(350,70,90);
 
   pop();
-
-  //---------- Creature--- -------------------------
+}
+  
+function drawCreature(){
   push();
     translate(200, 400);
   
@@ -81,10 +95,11 @@ function draw() {
   ellipse(-100, -200, 155, 40);
 
   pop();
+}
  
-  //---------- Bird--- -------------------------
+  function drawBird(x, y){
   push();
-  translate(200, 90);
+  translate(x, y);
   fill(255, 255, 0);
   ellipse(0, 0, 30, 30);
   
