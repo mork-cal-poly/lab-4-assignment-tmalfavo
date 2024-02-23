@@ -1,4 +1,5 @@
 let birdY = 90;
+let isFlying = false;
 
 function setup() {
   // These lines are fitting our canvas
@@ -17,7 +18,10 @@ function draw() {
 
   drawCreature();
 
+  if (isFlying){
   birdY -= 1;
+  }
+
   drawBird(200, birdY);
 }
 
@@ -118,4 +122,10 @@ function drawCreature(){
   ellipse(5, -3, 3, 3);
   
   pop();
+}
+
+function mouseClicked() {
+  if (mouseX > 185 && mouseX < 215 && mouseY > birdY - 15 && mouseY< birdY +15) {
+    isFlying = !isFlying;
+  }
 }
