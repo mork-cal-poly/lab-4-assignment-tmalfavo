@@ -1,5 +1,6 @@
 let birdY = 90;
 let isFlying = false;
+let creatureRotation = 0;
 
 function setup() {
   // These lines are fitting our canvas
@@ -16,11 +17,13 @@ function draw() {
 
   drawBackground();
 
-  drawCreature();
-
   if (isFlying){
   birdY -= 1;
   }
+
+  creatureRotation += radians(1);
+
+  drawCreature(200, 200, creatureRotation);
 
   drawBird(200, birdY);
 }
@@ -46,9 +49,10 @@ function drawBackground() {
   pop();
 }
   
-function drawCreature(){
+function drawCreature(x, y, r){
   push();
     translate(200, 400);
+    rotate(r);
   
   // leg
   fill(150, 112, 8);
