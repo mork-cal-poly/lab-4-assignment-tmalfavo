@@ -81,5 +81,26 @@ function draw() {
   ellipse(-100, -200, 155, 40);
 
   pop();
-        
+ 
+  //---------- Bird--- -------------------------
+  push();
+  translate(200, 90);
+  fill(255, 255, 0);
+  ellipse(0, 0, 30, 30);
+  
+  // Wings
+  fill(255, 255, 0);
+  ellipse(-15, 0, 15, 10);
+  ellipse(15, 0, 15, 10);
+  
+  // Beak
+  fill(255, 165, 0);
+  triangle(0, 0, 5, 5, 0, 8);
+  
+  // Eyes
+  fill(0);
+  ellipse(-5, -3, 3, 3);
+  ellipse(5, -3, 3, 3);
+  
+  pop();
 }
