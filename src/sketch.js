@@ -1,3 +1,8 @@
+let birdY = 90;
+let isFlying = false;
+let creatureRotation = 0;
+let isCreatureAnimationTriggered = false;
+
 function setup() {
   // These lines are fitting our canvas
   // where we want in the DOM
@@ -8,5 +13,156 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+
+  background(173, 216, 230);
+
+  drawBackground();
+
+  if (isFlying){
+  birdY -= 1;
+
+  if (birdY <= 50 && !isCreatureAnimationTriggered){
+    isCreatureAnimationTriggered = true;
+  }
+  }
+
+  if (isCreatureAnimationTriggered){
+  creatureRotation += radians(1);
+  }
+  
+  drawCreature2(200, 150)
+
+  drawCreature(200, 200, creatureRotation);
+
+  drawBird(200, birdY);
+  
+}
+
+function drawBackground() {
+   push();  
+         
+  //background log
+  noStroke()
+   fill(139, 69, 19);
+  rect(0 ,350, 400, 20);
+  
+  //background standing branch
+   fill(139, 69, 19);
+  rect(350 ,0, 20, 370);
+  
+  //background tree bush
+  fill(50, 205, 50)
+  circle(350,30,90)
+  circle(280,70,90);
+  circle(350,70,90);
+
+  pop();
+}
+  
+function drawCreature(x, y, r){
+  push();
+    translate(200, 400);
+    rotate(r);
+  
+  // leg
+  fill(150, 112, 8);
+  ellipse(30, -70, 155, 40);
+  
+  //body
+  fill(150, 112, 80)
+  rect(-50,-210,100,140)
+  
+  // legs
+  fill(150, 112, 80);
+  ellipse(20, -60, 155, 40);
+  
+  //head outline
+  fill(150, 112, 80);
+  ellipse(0, -250, 100, 100);
+
+  //inner head
+  fill(235, 213, 197);
+  noStroke();
+  ellipse(0,-250,85,85);
+  
+  //outer eyes
+  fill(133, 79, 36);
+  ellipse(-20, -250, 30, 20);
+  ellipse(20, -250, 30, 20);
+  
+  //pupils
+  fill(0);
+  circle(-20, -250, 11);
+  circle(20,-250,11);
+  
+  //nose
+  fill(0);
+  triangle(5, -240, -5, -240, 0, -235);
+  
+  //line connecting to mouth
+  stroke(0)
+  line(0, -235, 0, -230);
+  
+  //mouth
+  stroke(0); 
+  arc(0, -230, 30, 20, 0, PI,CHORD);
+  
+  // arms
+  fill(150, 112, 80);
+  ellipse(100, -200, 155, 40);
+  ellipse(-100, -200, 155, 40);
+
+  pop();
+}
+ 
+  function drawBird(x, y){
+  push();
+  translate(x, y);
+  fill(255, 255, 0);
+  ellipse(0, 0, 30, 30);
+  
+  // Wings
+  fill(255, 255, 0);
+  ellipse(-15, 0, 15, 10);
+  ellipse(15, 0, 15, 10);
+  
+  // Beak
+  fill(255, 165, 0);
+  triangle(0, 0, 5, 5, 0, 8);
+  
+  // Eyes
+  fill(0);
+  ellipse(-5, -3, 3, 3);
+  ellipse(5, -3, 3, 3);
+  
+  pop();
+}
+
+function drawCreature2(x2,y2){
+  push();
+    translate(x2,y2);
+    stroke('#362C4D')
+    strokeWeight(1)
+    //hat1
+    fill('#6C579A')
+    circle(0,-45,35)
+    //head
+    fill('#D9CF66')
+    circle(0,0,90)
+    //eyes
+    fill('#362C4D')
+    circle(-20,-10,10)
+    circle(20,-10,10)
+    //smile
+    curve(-30,10,-10,25,10,25,30,10)
+    //hat2
+    fill('#6C579A')
+    rect(-22,-45,44,7)
+  pop();
+}
+
+function mouseClicked() {
+  if (mouseX > 185 && mouseX < 215 && mouseY > birdY - 15 && mouseY< birdY +15) {
+    isFlying = !isFlying;
+  }
 }
