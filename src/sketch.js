@@ -29,10 +29,13 @@ function draw() {
   if (isCreatureAnimationTriggered){
   creatureRotation += radians(1);
   }
+  
+  drawCreature2(200, 150)
 
   drawCreature(200, 200, creatureRotation);
 
   drawBird(200, birdY);
+  
 }
 
 function drawBackground() {
@@ -132,6 +135,29 @@ function drawCreature(x, y, r){
   ellipse(-5, -3, 3, 3);
   ellipse(5, -3, 3, 3);
   
+  pop();
+}
+
+function drawCreature2(x2,y2){
+  push();
+    translate(x2,y2);
+    stroke('#362C4D')
+    strokeWeight(1)
+    //hat1
+    fill('#6C579A')
+    circle(0,-45,35)
+    //head
+    fill('#D9CF66')
+    circle(0,0,90)
+    //eyes
+    fill('#362C4D')
+    circle(-20,-10,10)
+    circle(20,-10,10)
+    //smile
+    curve(-30,10,-10,25,10,25,30,10)
+    //hat2
+    fill('#6C579A')
+    rect(-22,-45,44,7)
   pop();
 }
 
